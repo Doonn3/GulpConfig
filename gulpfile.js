@@ -25,7 +25,7 @@ let path = {
   // следим
   watch: {
     html: sourceFolder + "/html/*.html", 
-    _html: sourceFolder + "/html/**/_*.html", //тестовый массив
+    _html: sourceFolder + "/html/**/_*.html",
     css: sourceFolder + "/scss/**/*.scss",
     js: sourceFolder + "/js/**/*.js",
     img: sourceFolder + "/img/**/*.{jpg, png, svg, gif, ico, webp}",
@@ -49,7 +49,6 @@ let { src, dest } = require("gulp"),
   imagemin = require("gulp-imagemin"), // сжимаетль картинок
   webp = require("gulp-webp"), // сэиматель и преобразования картинки .webp
   webp_html = require("gulp-webp-html"); // автоматически подставляет тэг <pictures></pictures> для браузеров новых будут загружатся картинки с расширением .webp для браузеров старых .jpg и тд
-  //webp_css = require("gulp-webpcss") // gulp-webpcss не работает немогу пока понять как решить траблу
 
 
 // синхронизация с браузером
@@ -82,7 +81,6 @@ function css() {
       overrideBrowserslist: 'last 5 versions',
       cascade: true
     }))
-    //.pipe(webp_css()) //---------- 
     .pipe(dest(path.build.css))
     .pipe(clean_css())
     .pipe(rename({
