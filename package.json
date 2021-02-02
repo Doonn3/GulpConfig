@@ -1,5 +1,5 @@
 {
-  "name": "gulp__config",
+  "name": "gulp_config",
   "version": "0.5.1",
   "description": "Сборка для gulp",
   "main": "index.html",

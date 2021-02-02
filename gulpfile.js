@@ -36,7 +36,7 @@ let path = {
 };
 
 let { src, dest } = require("gulp"),
-  gulp = require("gulp"),            // Сам галп
+  gulp = require("gulp"),// Сам галп
   browser_sync = require("browser-sync").create(), // Синхронизация с браузером автоматическое обновление после изменения в файлах src
   fileinclude = require("gulp-file-include"), // путь пример подключения @@include('./view.html')
   del = require("del"), 
@@ -113,7 +113,7 @@ function images() {
       progressive: true,
       svgoPlugins: [{ removeViewBox: false}],
       interlaced: true,
-      optimizationLevel: 3     // Сжимает картинки 0 - без сжатия 7 - максимальное сжатие от 0 до 7
+      optimizationLevel: 3// Сжимает картинки 0 - без сжатия 7 - максимальное сжатие от 0 до 7
     }))
     .pipe(dest(path.build.img))
     .pipe(browser_sync.stream());
