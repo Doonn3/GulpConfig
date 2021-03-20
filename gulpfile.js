@@ -10,6 +10,7 @@ let path = {
     img: projectFolder + "/img/",
     icons: projectFolder + "/icons",
     fonts: projectFolder + "/fonts/",
+    vendor: projectFolder + "/vendor/",
   },
 
   // путь для разработки
@@ -20,6 +21,7 @@ let path = {
     img: sourceFolder + "/img/**/*.{jpg, png, svg, gif, ico, webp}",
     icons: sourceFolder + "/icons/**/*.{svg, png}",
     fonts: sourceFolder + "/fonts/*.ttf",
+    vendor: sourceFolder + "/vendor/**",
   },
 
   // следим
@@ -30,6 +32,7 @@ let path = {
     js: sourceFolder + "/js/**/*.js",
     img: sourceFolder + "/img/**/*.{jpg, png, svg, gif, ico, webp}",
     icons: sourceFolder + "/icons/**/*.{svg, png}",
+    vendor: sourceFolder + "/vendor/**",
   },
 
   clean: "./" + projectFolder + "/", // удаляем папку
@@ -58,8 +61,12 @@ function browserSync(params) {
       baseDir: "./" + projectFolder + "/"
     },
 
+
+    //proxy: "",
+    //online: true,
+    //tunnel: "", //true
     port: 3000,
-    notify: false
+    notify: false,
   });
 }
 
@@ -125,6 +132,12 @@ function icons() {
       .pipe(browser_sync.stream());
 }
 
+function vendor() {
+  return src(path.src.vendor)
+      .pipe(dest(path.build.vendor))
+      .pipe(browser_sync.stream());
+}
+
 // следим за файлами
 function watchFile(params) {
   gulp.watch([path.watch.html], html);
@@ -141,11 +154,12 @@ function clean() {
 }
 
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, icons));
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, icons, vendor));
 
 // выполняем слежку
 let watch = gulp.parallel(build, watchFile, browserSync);
 
+exports.vendor = vendor;
 exports.icons = icons;
 exports.images = images;
 exports.js = js;

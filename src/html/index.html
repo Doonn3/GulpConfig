@@ -2,22 +2,137 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8 ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- https://leafletjs.com/ -->
+    <link rel="stylesheet" href="../vendor/leaflet/leaflet.css">
+    <!-- Main Style -->
     <link rel="stylesheet" href="css/style.min.css">
-    <title>New Todo</title>
+    <title>Google Maps </title>
 </head>
 
 <body>
-    <div style="display:flex;
-                justify-content: center;
-                height: 1200px; 
-                width: 100%; 
-                background-color: black; 
-                color: #fff; 
-                font-size: 50px;
-                ">
-                Gulp Config Work </div>
+
+    @@include("components/header/_header.html")
+
+
+    @@include("components/map/_map.html")
+
+
+
+
+
+    <!-- GoogleMap -->
+    <!-- <div id="map"></div> -->
+
+    
+    <!-- <script src="js/script.js"></script> -->
+    
+    <!-- <script >
+        function initMap() {
+            let opt = {
+                center: { lat: 51.625952, lng: 39.078585 },
+                zoom: 15,
+                styles: [
+      { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+      {
+        featureType: "administrative.locality",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [{ color: "#263c3f" }],
+      },
+      {
+        featureType: "poi.park",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#6b9a76" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{ color: "#38414e" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#212a37" }],
+      },
+      {
+        featureType: "road",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#9ca5b3" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry",
+        stylers: [{ color: "#746855" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#1f2835" }],
+      },
+      {
+        featureType: "road.highway",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#f3d19c" }],
+      },
+      {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{ color: "#2f3948" }],
+      },
+      {
+        featureType: "transit.station",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#d59563" }],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{ color: "#17263c" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [{ color: "#515c6d" }],
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text.stroke",
+        stylers: [{ color: "#17263c" }],
+      },
+    ],
+            }
+            const pos = { lat: 51.625952, lng: 39.078585 };
+
+            let map = new google.maps.Map(document.getElementById("map"), opt); 
+            let marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+              });  
+        }
+    </script> -->
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <!-- <script
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzOtRRDvqaF9hSA2BdvKYF6L732ChkPwY&callback=initMap&libraries=&v=weekly"
+     async
+    ></script> -->
+
+    <!-- https://leafletjs.com/ -->
+    <script src="../vendor/leaflet/leaflet.js"></script>
+
+    <!-- Main Script -->
     <script src="js/script.js"></script>
 </body>
 

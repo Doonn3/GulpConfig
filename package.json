@@ -1,6 +1,6 @@
 {
   "name": "gulp_config",
-  "version": "0.5.1",
+  "version": "0.7.0",
   "description": "Сборка для gulp",
   "main": "index.html",
   "scripts": {

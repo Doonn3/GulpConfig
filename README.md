@@ -1,4 +1,4 @@
-# Документация по GulpConfig v.0.5.1
+# Документация по GulpConfig v.0.7.0
 
 ### Что такое Gulp `https://gulpjs.com/`
 

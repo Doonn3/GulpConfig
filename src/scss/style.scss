@@ -1,1 +1,13 @@
-@import 'component/reset.scss';
+// Сброс Стандартной Стилизации
+@import 'configs/reset.scss';
+
+// BootStrap 4 Grid 
+@import 'vendor/BootStrap_4/scss/grid.scss';
+//
+@import 'configs/block-colors.scss';
+
+//@import 'configs/container.scss';
+
+
+
+@import 'components/header/header.scss';

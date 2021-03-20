@@ -30,4 +30,28 @@ a:not([class]) {
 a[class] {
     text-decoration: none;
 }
+
+/* Сброс стандартных стислей если есть класс*/
+button[class] {
+  //background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+button:hover[class] {
+  //background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+button:active[class] {
+  outline: none;
+  border: none;
+}
+
+button:focus[class] {
+  outline: 0;
+}
 /*----------------------------------------------------------------------------*/
