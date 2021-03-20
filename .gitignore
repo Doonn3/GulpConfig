@@ -9,6 +9,4 @@ package-lock.json
 /src/vendor/**
 
 # exception to the rule
-!/src/html/components/.gitkeep
-!/src/img/.gitkeep
-!/src/vendor/.gitkeep
+!/.gitkeep
