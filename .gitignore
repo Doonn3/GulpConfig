@@ -2,6 +2,13 @@ dist/
 node_modules/
 package-lock.json
 
+
+# exclude everything
 src/html/components/*
 src/img/*
 src/vendor/*
+
+# exception to the rule
+!src/html/components/.gitkeep
+!src/img/.gitkeep
+!src/vendor/.gitkeep
