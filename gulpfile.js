@@ -7,6 +7,7 @@ let path = {
     html: projectFolder + "/",
     css: projectFolder + "/css/",
     js: projectFolder + "/js/",
+    ts: projectFolder + "/ts/",
     img: projectFolder + "/img/",
     icons: projectFolder + "/icons",
     fonts: projectFolder + "/fonts/",
@@ -18,6 +19,7 @@ let path = {
     html: [sourceFolder + "/html/**/*.html", "!" + sourceFolder + "/html/**/_*.html"],
     css: sourceFolder + "/scss/style.scss",
     js: sourceFolder + "/js/script.js",
+    ts: sourceFolder + "/ts/app.ts",
     img: sourceFolder + "/img/**/*.{jpg, png, svg, gif, ico, webp}",
     icons: sourceFolder + "/icons/**/*.{svg, png}",
     fonts: sourceFolder + "/fonts/*.ttf",
@@ -30,6 +32,7 @@ let path = {
     _html: sourceFolder + "/html/**/_*.html",
     css: sourceFolder + "/scss/**/*.scss",
     js: sourceFolder + "/js/**/*.js",
+    ts: sourceFolder + "/ts/**/*.ts",
     img: sourceFolder + "/img/**/*.{jpg, png, svg, gif, ico, webp}",
     icons: sourceFolder + "/icons/**/*.{svg, png}",
     vendor: sourceFolder + "/vendor/**",
@@ -52,6 +55,8 @@ let { src, dest } = require("gulp"),
   imagemin = require("gulp-imagemin"), // сжимаетль картинок
   webp = require("gulp-webp"), // сэиматель и преобразования картинки .webp
   webp_html = require("gulp-webp-html"); // автоматически подставляет тэг <pictures></pictures> для браузеров новых будут загружатся картинки с расширением .webp для браузеров старых .jpg и тд
+  ts = require("gulp-typescript");
+  tsProject = ts.createProject("tsconfig.json");
 
 
 // синхронизация с браузером
@@ -109,6 +114,20 @@ function js() {
     .pipe(browser_sync.stream());
 }
 
+function compileTS() {
+  return src(path.src.ts)
+      .pipe(tsProject())
+      .pipe(dest(path.build.js))
+      .pipe(uglify())
+      .pipe(rename({
+        extname: ".min.js"
+      }))
+      .pipe(dest(path.build.js))
+      .pipe(browser_sync.stream());
+}
+
+console.log(ts());
+
 function images() {
   return src(path.src.img)
     .pipe(webp({
@@ -144,6 +163,7 @@ function watchFile(params) {
   gulp.watch([path.watch._html], html);
   gulp.watch([path.watch.css], css);
   gulp.watch([path.watch.js], js);
+  gulp.watch([path.watch.ts], compileTS);
   gulp.watch([path.watch.img], images);
   gulp.watch([path.watch.icons], icons);
 }
@@ -154,7 +174,7 @@ function clean() {
 }
 
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, icons, vendor));
+let build = gulp.series(clean, gulp.parallel(js, compileTS, css, html, images, icons, vendor));
 
 // выполняем слежку
 let watch = gulp.parallel(build, watchFile, browserSync);

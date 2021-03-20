@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "es5",
+    //"module": "commonjs",
+    //"outFile": "src/js/app.js",
+    //"sourceMap": true,
+  },
+  "files": ["src/ts/app.ts"],
+}
